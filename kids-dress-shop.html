@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kids Comfy Fashion – Feel The Real Comfort</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7fbff;--card:#fff;--ink:#1f2a44;--mute:#5d6882;--line:#dfe7f2;--acc:#ff5a4f;--acc-ink:#fff;--sun:#ffd86b;--leaf:#2f9e72;--sel:#1f2a44;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a2b;--card:#1b2540;--ink:#f2f5fb;--mute:#a4afc8;--line:#2c3a5e;--acc:#ff7468;--acc-ink:#1a1020;--sun:#ffd86b;--leaf:#4fd1a0;--sel:#ffd86b}}
+:root[data-theme="dark"]{--bg:#121a2b;--card:#1b2540;--ink:#f2f5fb;--mute:#a4afc8;--line:#2c3a5e;--acc:#ff7468;--acc-ink:#1a1020;--sun:#ffd86b;--leaf:#4fd1a0;--sel:#ffd86b}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri","Noto Sans Bengali","Segoe UI",sans-serif;font-size:16px;line-height:1.6;padding-bottom:84px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px;text-align:center}
+.logo{font-size:clamp(34px,8vw,56px);font-weight:700;line-height:1.1;letter-spacing:-.5px}
+.logo i{font-style:normal;display:inline-block;background:var(--sun);color:#1f2a44;border-radius:14px;padding:0 12px;transform:rotate(-3deg)}
+.tag{margin-top:8px;font-size:18px;font-weight:500;color:var(--leaf);letter-spacing:.5px}
+header p{margin:10px auto 0;color:var(--mute);max-width:46ch}
+.how{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 4px;font-size:14px;color:var(--mute)}
+.how span{border:1px dashed var(--line);border-radius:99px;padding:2px 12px}
+h2{font-size:22px;margin:28px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.art{aspect-ratio:1/0.82;display:grid;place-items:center;transition:background .25s}
+.art svg{width:62%;height:auto;filter:drop-shadow(0 6px 0 rgba(0,0,0,.08))}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.name{font-weight:600;font-size:18px}
+.price{font-weight:700;color:var(--acc)}
+.lbl{font-size:13px;color:var(--mute);margin-bottom:4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;position:relative}
+.sw[aria-pressed="true"]{outline:3px solid var(--sel);outline-offset:2px}
+.sz{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:3px 10px;font:inherit;font-size:14px;cursor:pointer}
+.sz[aria-pressed="true"]{background:var(--sel);color:var(--bg);border-color:var(--sel)}
+.add{margin-top:4px;border:0;background:var(--acc);color:var(--acc-ink);font:inherit;font-weight:600;border-radius:12px;padding:10px;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+.err{color:var(--acc);font-size:13px;min-height:20px;margin:0}
+#order{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:8px}
+.empty{color:var(--mute)}
+.line{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none}
+.line .t{flex:1;min-width:0}
+.line .t small{color:var(--mute);display:block}
+.q{display:flex;align-items:center;gap:6px}
+.q button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.rm{border:0;background:none;color:var(--mute);cursor:pointer;font:inherit;font-size:13px;text-decoration:underline}
+.form{display:grid;gap:12px;margin-top:16px}
+.form label{display:grid;gap:4px;font-size:14px;color:var(--mute)}
+.form input,.form textarea,.form select{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.sum{margin-top:12px;display:grid;gap:4px}
+.sum div{display:flex;justify-content:space-between}
+.sum .tot{font-weight:700;font-size:19px;border-top:1px solid var(--line);padding-top:6px;margin-top:4px}
+.go{border:0;background:var(--leaf);color:#fff;font:inherit;font-weight:700;border-radius:14px;padding:13px;cursor:pointer;font-size:17px}
+.done{display:none;margin-top:16px;border:2px solid var(--leaf);border-radius:16px;padding:14px}
+.done.show{display:block}
+.send{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.send a,.send button{flex:1 1 150px;text-align:center;text-decoration:none;font:inherit;font-weight:600;border-radius:12px;padding:10px;border:0;cursor:pointer;color:#fff}
+.msgr{background:#0a7cff}.wa{background:#1fa855}.cp{background:var(--sel);color:var(--bg)!important}
+pre{white-space:pre-wrap;background:var(--bg);border-radius:12px;padding:12px;font:inherit;font-size:14px;margin:10px 0 0}
+footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--bg);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:5}
+.bar a{background:var(--sun);color:#1f2a44;text-decoration:none;font-weight:700;border-radius:12px;padding:8px 18px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.art{transition:none}}
+[hidden]{display:none!important}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:0;cursor:pointer;color:var(--ink);font:inherit;text-align:center;overflow:hidden;display:flex;flex-direction:column}
+.ti{display:grid;place-items:center;aspect-ratio:1/0.8}
+.ti svg{width:50%;height:auto}
+.tn{padding:8px 8px 12px;font-weight:600;line-height:1.35;flex:1}
+.tp{color:var(--acc);font-weight:700;padding:2px 0 8px}
+.tick{background:var(--leaf);color:#fff;font-size:13px;padding:2px 4px}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.back{border:0;background:none;color:var(--mute);font:inherit;padding:12px 16px 0;cursor:pointer}
+.pkg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center}
+@media (max-width:620px){.pkg{grid-template-columns:1fr}}
+.ok{color:var(--leaf);font-weight:600;margin:0}
+.fin{display:block;text-align:center;margin-top:16px;background:var(--sun);color:#1f2a44;text-decoration:none;font-weight:700;border-radius:14px;padding:12px}
+.art svg path,.ti svg path{stroke:rgba(0,0,0,.15);stroke-width:1.5}
+.sec{margin-bottom:8px}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sh h2{margin:18px 0 10px;font-size:20px}
+.all{border:0;background:none;color:var(--acc);font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px}
+.mini{flex:0 0 168px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column}
+.mini .art{aspect-ratio:1/0.85}
+.mb{padding:10px;display:flex;flex-direction:column;gap:4px;flex:1}
+.mn{font-weight:600;line-height:1.3;font-size:15px}
+.mini .add{margin-top:auto;padding:7px;font-size:13px}
+.hl{outline:3px solid var(--sun)}
+.terms{max-width:760px;margin:24px auto 0;text-align:left;color:var(--ink);font-size:15px;border-top:1px solid var(--line);padding:24px 0 8px}
+.terms h2{font-size:20px;margin:0 0 2px}
+.terms h3{font-size:16px;margin:18px 0 6px}
+.terms ul{margin:0;padding-left:20px;color:var(--mute)}
+.terms li{margin:3px 0}
+.terms p{margin:6px 0;color:var(--mute)}
+.terms a{color:var(--acc)}
+.terms .end{text-align:center;margin-top:20px;font-weight:600;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo"><i>Kids</i> Comfy Fashion</div>
+  <div class="tag">Feel The Real Comfort</div>
+  
+  
+</header>
+
+<div id="shop">
+<h2 id="gtitle">আমাদের কালেকশন</h2>
+<div id="tiles"></div>
+<section id="picker" hidden></section>
+<div id="more" hidden></div>
+</div>
+
+<h2 id="orderTitle">আপনার অর্ডার</h2>
+<section id="order">
+  <div id="lines"></div>
+  <form class="form" id="form" novalidate>
+    <label>আপনার নাম<input id="nm" autocomplete="name" placeholder="যেমন: রাবেয়া খাতুন"></label>
+    <label>মোবাইল নম্বর<input id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"></label>
+    <label>পূর্ণ ঠিকানা<textarea id="ad" rows="2" autocomplete="street-address" placeholder="বাসা/রোড, এলাকা, জেলা"></textarea></label>
+    <label>ডেলিভারি এলাকা
+      <select id="zone"><option value="60">ঢাকার ভিতরে (৬০ টাকা)</option><option value="120">ঢাকার বাইরে (১২০ টাকা)</option></select>
+    </label>
+    <div class="sum" id="sum"></div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="go" type="submit">অর্ডার তৈরি করুন</button>
+  </form>
+  <div class="done" id="done">
+    <strong>ধন্যবাদ! আপনার অর্ডার পাঠানো হয়েছে।</strong>
+    <p class="empty" style="margin:6px 0 0">আমরা খুব শীঘ্রই আপনার মোবাইল নম্বরে যোগাযোগ করে অর্ডার নিশ্চিত করব।</p>
+  </div>
+</section>
+<footer class="terms">
+<h2>Kids Comfy Fashion</h2>
+<p><b>Terms &amp; Conditions | Shopping Policy</b></p>
+<p>Welcome to Kids Comfy Fashion! আমাদের ওয়েবসাইট ব্যবহার এবং অর্ডার করার মাধ্যমে আপনি নিচের শর্তাবলিতে সম্মতি প্রদান করছেন।</p>
+
+<h3>১. পণ্যের বিবরণ ও মূল্য</h3>
+<ul>
+<li>প্রতিটি পণ্যের ছবি, রং, সাইজ, কাপড় ও অন্যান্য বিবরণ যথাসম্ভব সঠিকভাবে উপস্থাপন করার চেষ্টা করা হয়।</li>
+<li>ডিভাইসের স্ক্রিন বা আলোর পার্থক্যের কারণে ছবির সঙ্গে বাস্তব পণ্যের রঙে সামান্য পার্থক্য হতে পারে।</li>
+<li>পণ্যের মূল্য বাংলাদেশি টাকা (BDT) হিসেবে উল্লেখ করা হবে।</li>
+<li>কর্তৃপক্ষ যেকোনো সময় পূর্বঘোষণা ছাড়াই পণ্যের মূল্য ও অফার পরিবর্তন করার অধিকার সংরক্ষণ করে।</li>
+<li>কোনো পণ্যের স্টক শেষ হয়ে গেলে অর্ডার গ্রহণ করা সম্ভব নাও হতে পারে।</li>
+</ul>
+
+<h3>২. অর্ডার করার নিয়ম</h3>
+<ul>
+<li>ওয়েবসাইট থেকে পছন্দের পণ্য নির্বাচন করার সময় প্রয়োজনীয় সাইজ ও পরিমাণ উল্লেখ করে অর্ডার করতে পারবেন।</li>
+<li>অর্ডার করার সময় সঠিক নাম, মোবাইল নম্বর ও সম্পূর্ণ ডেলিভারি ঠিকানা প্রদান করতে হবে।</li>
+<li>অর্ডার গ্রহণের পর আমাদের প্রতিনিধি প্রয়োজন অনুযায়ী ফোন বা মেসেজের মাধ্যমে অর্ডার নিশ্চিত করতে পারেন।</li>
+<li>ভুল তথ্য, অসম্পূর্ণ ঠিকানা বা গ্রাহকের সঙ্গে যোগাযোগ করা সম্ভব না হলে অর্ডার বাতিল হতে পারে।</li>
+</ul>
+
+<h3>৩. পেমেন্ট পলিসি</h3>
+<ul>
+<li>আমাদের Cash on Delivery (COD) সুবিধা চলমান রয়েছে, তাই পণ্য হাতে পাওয়ার সময় মূল্য পরিশোধ করতে পারবেন।</li>
+<li>ডেলিভারি চার্জ ও অন্যান্য প্রযোজ্য খরচ অর্ডারের সময় জানিয়ে দেওয়া হবে।</li>
+<li>কোনো অগ্রিম পেমেন্ট করতে চাইলে অবশ্যই আমাদের সাথে যোগাযোগ করে নিবেন।</li>
+</ul>
+
+<h3>৪. ডেলিভারি ও রিটার্ন পলিসি</h3>
+<ul>
+<li>সারা বাংলাদেশে কুরিয়ার সার্ভিসের মাধ্যমে হোম ডেলিভারি দেওয়া হয়।</li>
+<li>সাধারণত অর্ডার নিশ্চিত হওয়ার ৩ থেকে ৪ কর্মদিবসের মধ্যে ডেলিভারি সম্পন্ন হয়ে থাকে।</li>
+<li>প্রাকৃতিক দুর্যোগ, সরকারি ছুটি, পরিবহন সমস্যা বা অনাকাঙ্ক্ষিত পরিস্থিতিতে ডেলিভারিতে বিলম্ব হতে পারে।</li>
+<li>পণ্য হাতে পাওয়ার পর কোনো সমস্যা থাকলে দ্রুত আমাদের সঙ্গে যোগাযোগ করতে হবে।</li>
+<li>এক্সচেঞ্জের ক্ষেত্রে পণ্য অব্যবহৃত, পরিষ্কার ও অক্ষত অবস্থায় থাকতে হবে।</li>
+<li>পণ্যের ট্যাগ ও মূল প্যাকেজিং সংরক্ষণ করতে হবে।</li>
+<li>পণ্য ফেরত বা এক্সচেঞ্জের জন্য নির্ধারিত সময়সীমা: পণ্য হাতে পাওয়ার ৪৮ ঘণ্টার মধ্যে আমাদের জানাতে হবে।</li>
+</ul>
+
+<h3>৫. নীতিমালা পরিবর্তন</h3>
+<p>Kids Comfy Fashion যেকোনো সময় প্রয়োজন অনুযায়ী এই নিয়ম ও নীতিমালা সংশোধন, সংযোজন বা পরিবর্তন করার অধিকার সংরক্ষণ করে। পরিবর্তিত নীতিমালা ওয়েবসাইটে প্রকাশের পর থেকে কার্যকর হবে।</p>
+
+<h3>৬. যোগাযোগ (Contact Us)</h3>
+<p>অর্ডার, পেমেন্ট, ডেলিভারি, রিটার্ন অথবা যেকোনো তথ্য ও অভিযোগের জন্য আমাদের সঙ্গে যোগাযোগ করুন।</p>
+<p><b>Kids Comfy Fashion</b><br>ঠিকানাঃ ৪ নং ওয়ার্ড, পীরগঞ্জ পৌরসভা, পীরগঞ্জ-রংপুর</p>
+<p>Facebook: <a href="https://www.facebook.com/kidscomfyfashion" target="_blank" rel="noopener">facebook.com/kidscomfyfashion</a><br>
+WhatsApp: <a href="https://wa.me/8801821960315" target="_blank" rel="noopener">wa.me/8801821960315</a><br>
+Messenger: <a href="https://m.me/kidscomfyfashion" target="_blank" rel="noopener">m.me/kidscomfyfashion</a></p>
+<p class="end">আমাদের প্রতি আস্থা রাখার জন্য ধন্যবাদ। আপনার সোনামনির আরাম ও আনন্দই আমাদের অগ্রাধিকার।<br>Kids Comfy Fashion — Feel the Real Comfort.</p>
+</footer>
+</div>
+
+<div class="bar"><span id="barTxt">কিছু যোগ করা হয়নি</span><a href="#orderTitle">অর্ডার দেখুন</a></div>
+
+<script>
+// ===== এখানে নিজের তথ্য বসান =====
+var FB_PAGE = "YOUR_PAGE_USERNAME";   // ফেসবুক পেজের ইউজারনেম (facebook.com/ এর পরের অংশ)
+var WA_NUMBER = "8801XXXXXXXXX";      // হোয়াটসঅ্যাপ নম্বর, দেশের কোডসহ (৮৮০...)
+var SHEET_URL = "https://script.google.com/macros/s/AKfycbzAzMTrBlsORxsSEUKYcOQZCF-_VkgmiklHz04-k5HJP0V4-RHiOUva3bs-SQlV-tSZ/exec";                   // গুগল অ্যাপস স্ক্রিপ্টের Web App লিংক (নিজের হোস্টিংয়ে চালালে অর্ডার শীটে যাবে)
+// =================================
+
+var S=["০-৩ মাস","৩-৬ মাস","৬-১২ মাস","১-২ বছর","২-৩ বছর","৩-৪ বছর","৪-৫ বছর"];
+var CL={"আকাশি":"#6ec6ff","হলুদ":"#ffd04d","সাদা":"#fbfbfb","সবুজ":"#3f9a6b","নীল":"#4f86f7","মেরুন":"#a23b4f","ধূসর":"#9aa3b2","গোলাপি":"#ff8fb1","লাল":"#ec4a54","বেগুনি":"#a07cf0","পিচ":"#ffb48a","কমলা":"#ff9a4d","কালো":"#2b2f3a","নেভি":"#2f3f7a","খাকি":"#c8b27a"};
+var GR=[
+ {id:1,n:"বাচ্চাদের হাতা ছাড়া ফতুয়া",shape:"tank",bg:"#e3f6f3",nc:1},
+ {id:2,n:"বাচ্চাদের হাফ হাতা ফতুয়া",shape:"tee",bg:"#fff6dc"},
+ {id:3,n:"বাচ্চাদের ফুলহাতা ফতুয়া",shape:"long",bg:"#e8f1ff"},
+ {id:4,n:"বাচ্চাদের ফ্রক",shape:"dress",bg:"#ffe9ef"},
+ {id:5,n:"বাচ্চাদের শর্টস",shape:"shorts",bg:"#efe8ff"},
+ {id:6,n:"বাচ্চাদের ফুল পাজামা",shape:"pants",bg:"#e5f7ee"},
+ {id:7,n:"বাচ্চাদের হাফ প্যান্ট",shape:"half",bg:"#ffeede"},
+ {id:8,n:"বাচ্চাদের ন্যাপী",shape:"nappy",bg:"#e6f1ff"}
+];
+// প্রতিটা ড্রেস: [গ্রুপ নম্বর, "নাম", দাম, "রঙ১,রঙ২"]
+var RAW=[
+ [1,"প্লেইন ফতুয়া",350,"আকাশি"],[1,"প্রিন্টেড ফতুয়া",380,"হলুদ"],[1,"স্ট্রাইপ ফতুয়া",380,"সবুজ"],
+ [2,"প্লেইন হাফ ফতুয়া",420,"আকাশি,হলুদ,সাদা,সবুজ"],[2,"প্রিন্টেড হাফ ফতুয়া",450,"লাল,নীল,হলুদ"],[2,"কটন হাফ ফতুয়া",400,"সাদা,ধূসর,মেরুন"],
+ [3,"প্লেইন ফুলহাতা ফতুয়া",480,"নীল,মেরুন,ধূসর,সাদা"],[3,"প্রিন্টেড ফুলহাতা ফতুয়া",520,"আকাশি,সবুজ,হলুদ"],
+ [4,"ফ্রিল ফ্রক",650,"গোলাপি,হলুদ,আকাশি,সাদা"],[4,"পার্টি ফ্রক",900,"লাল,বেগুনি,পিচ"],[4,"কটন ফ্রক",550,"গোলাপি,সবুজ,কমলা"],
+ [5,"কটন শর্টস",320,"কালো,নীল,ধূসর"],[5,"প্রিন্টেড শর্টস",350,"নীল,লাল"],
+ [6,"প্লেইন ফুল পাজামা",450,"সাদা,নীল,গোলাপি"],[6,"প্রিন্টেড ফুল পাজামা",480,"আকাশি,হলুদ"],
+ [7,"কটন হাফ প্যান্ট",380,"কালো,নেভি,খাকি"],[7,"জিন্স হাফ প্যান্ট",450,"নীল,কালো"],
+ [8,"কটন ন্যাপী",280,"সাদা,হলুদ,আকাশি,গোলাপি"],[8,"প্রিন্টেড ন্যাপী",320,"আকাশি,গোলাপি"],[8,"ন্যাপী ২ পিস সেট",500,"সাদা,হলুদ"]
+];
+var P=[];
+RAW.forEach(function(r,k){var g=GR[r[0]-1];P.push({id:k+1,g:g.id,n:r[1],p:r[2],shape:g.shape,bg:g.bg,nc:g.nc,c:r[3].split(",").map(function(c){return [g.nc?"":c,CL[c]]}),s:S})});
+var sel={},cart=[],cur=null,added=0;
+P.forEach(function(x){sel[x.id]={c:0,s:-1}});
+
+function bn(n){return String(n).replace(/\d/g,function(d){return "০১২৩৪৫৬৭৮৯"[d]})}
+function tk(n){return "৳"+bn(n.toLocaleString("en-US"))}
+var SH={
+ tee:'<path d="M40 10 Q60 26 80 10 L108 30 L96 52 L84 46 L84 118 L36 118 L36 46 L24 52 L12 30 Z" fill="@C"/><path d="M40 10 Q60 26 80 10 L76 6 Q60 18 44 6 Z" fill="@D"/>',
+ tank:'<path d="M42 8 L52 8 Q60 30 68 8 L78 8 L84 40 L84 118 L36 118 L36 40 Z" fill="@C"/><path d="M52 8 Q60 30 68 8 L66 6 Q60 22 54 6 Z" fill="@D"/>',
+ long:'<path d="M40 10 Q60 26 80 10 L110 30 L116 98 L102 100 L88 50 L84 118 L36 118 L32 50 L18 100 L4 98 L10 30 Z" fill="@C"/><path d="M40 10 Q60 26 80 10 L76 6 Q60 18 44 6 Z" fill="@D"/>',
+ dress:'<path d="M44 8 L54 8 Q60 20 66 8 L76 8 L80 34 L72 44 L96 118 Q60 128 24 118 L48 44 L40 34 Z" fill="@C"/><path d="M48 44 L72 44 L74 54 L46 54 Z" fill="@D"/>',
+ shorts:'<path d="M28 28 L92 28 L98 92 L66 92 L60 62 L54 92 L22 92 Z" fill="@C"/><path d="M28 28 L92 28 L92 38 L28 38 Z" fill="@D"/>',
+ half:'<path d="M28 18 L92 18 L102 104 L68 104 L60 56 L52 104 L18 104 Z" fill="@C"/><path d="M28 18 L92 18 L92 28 L28 28 Z" fill="@D"/>',
+ pants:'<path d="M32 10 L88 10 L96 124 L68 124 L60 48 L52 124 L24 124 Z" fill="@C"/><path d="M32 10 L88 10 L88 20 L32 20 Z" fill="@D"/>',
+ nappy:'<path d="M12 28 L108 28 Q102 72 76 96 L60 108 L44 96 Q18 72 12 28 Z" fill="@C"/><path d="M12 28 L108 28 L106 40 L14 40 Z" fill="@D"/>'
+};
+function art(sh,col){return '<svg viewBox="0 0 120 130" aria-hidden="true">'+SH[sh].split("@C").join(col).split("@D").join("rgba(0,0,0,.14)")+'</svg>'}
+function find(id){return P.filter(function(x){return x.id==id})[0]}
+function items(g){return P.filter(function(x){return x.g===g})}
+function gInCart(g){return cart.some(function(l){return find(l.id).g===g})}
+function tile(g){var it=items(g.id),mn=Math.min.apply(null,it.map(function(x){return x.p}));return '<button class="tile" data-g="'+g.id+'"><span class="ti" style="background:'+g.bg+'">'+art(g.shape,it[0].c[0][1])+'</span><span class="tn">'+g.n+'</span></button>'}
+function mini(x){return '<article class="mini"><div class="art" style="background:'+x.bg+'">'+art(x.shape,x.c[0][1])+'</div><div class="mb"><div class="mn">'+x.n+'</div><div class="price">'+tk(x.p)+'</div><button class="add" data-g="'+x.g+'" data-f="'+x.id+'">রঙ ও সাইজ বেছে নিন</button></div></article>'}
+function sect(g){var it=items(g.id);return '<section class="sec"><div class="sh"><h2>'+g.n+'</h2><button class="all" data-g="'+g.id+'">সব দেখুন ('+bn(it.length)+') →</button></div><div class="row">'+it.slice(0,5).map(mini).join("")+'</div></section>'}
+function card(x){var st=sel[x.id];
+ return '<article class="card" id="c'+x.id+'"><div class="art" style="background:'+x.bg+'">'+art(x.shape,x.c[st.c][1])+'</div><div class="body"><div class="top"><span class="name">'+x.n+'</span><span class="price">'+tk(x.p)+'</span></div>'
+ +(x.nc?'':'<div><div class="lbl">রঙ: <b>'+x.c[st.c][0]+'</b></div><div class="opts">'+x.c.map(function(c,i){return '<button class="sw" style="background:'+c[1]+'" aria-label="'+c[0]+'" aria-pressed="'+(st.c===i)+'" data-act="c" data-id="'+x.id+'" data-i="'+i+'"></button>'}).join("")+'</div></div>')
+ +'<div><div class="lbl">সাইজ</div><div class="opts">'+x.s.map(function(s,i){return '<button class="sz" aria-pressed="'+(st.s===i)+'" data-act="s" data-id="'+x.id+'" data-i="'+i+'">'+s+'</button>'}).join("")+'</div></div>'
+ +'<p class="err" id="e'+x.id+'"></p>'+(added===x.id?'<p class="ok">✓ অর্ডারে যোগ হয়েছে</p>':'')+'<button class="add" data-act="add" data-id="'+x.id+'">অর্ডারে যোগ করুন</button></div></article>'}
+function render(){
+ var T=document.getElementById("tiles"),K=document.getElementById("picker"),M=document.getElementById("more"),H=document.getElementById("gtitle");
+ if(cur===null){H.hidden=false;T.hidden=false;K.hidden=true;M.hidden=true;T.innerHTML=GR.map(sect).join("");return}
+ var g=GR[cur-1],it=items(cur);
+ H.hidden=true;T.hidden=true;K.hidden=false;M.hidden=false;
+ K.innerHTML='<button class="back" data-a="home">← সব গ্রুপ দেখুন</button><h2>'+g.n+'</h2><div class="grid">'+it.map(card).join("")+'</div>';
+ M.innerHTML='<h2>এর সাথে আরও কিছু নিতে চান?</h2><div class="tiles">'+GR.filter(function(o){return o.id!==cur}).map(tile).join("")+'</div>'+(cart.length?'<a class="fin" href="#orderTitle">অর্ডার সম্পূর্ণ করুন ('+bn(count())+' টি)</a>':'');
+}
+document.getElementById("shop").addEventListener("click",function(e){
+ var b=e.target.closest("button[data-g],button[data-a],button[data-act]"); if(!b) return;
+ if(b.dataset.g){cur=+b.dataset.g;added=0;render();var fe=b.dataset.f?document.getElementById("c"+b.dataset.f):null;if(fe)fe.classList.add("hl");(fe||document.getElementById("picker")).scrollIntoView({block:"start"});return}
+ if(b.dataset.a==="home"){cur=null;added=0;render();document.getElementById("gtitle").scrollIntoView({block:"start"});return}
+ var id=+b.dataset.id,a=b.dataset.act;
+ if(a==="c"){sel[id].c=+b.dataset.i;added=0;render()}
+ else if(a==="s"){sel[id].s=+b.dataset.i;added=0;render()}
+ else if(a==="add"){
+  if(sel[id].s<0){document.getElementById("e"+id).textContent="আগে সাইজ বেছে নিন।";return}
+  var key=id+"-"+sel[id].c+"-"+sel[id].s,f=cart.filter(function(l){return l.k===key})[0];
+  if(f)f.q++;else cart.push({k:key,id:id,c:sel[id].c,s:sel[id].s,q:1});
+  added=id;update();render();
+ }
+});
+function sub(){return cart.reduce(function(t,l){return t+find(l.id).p*l.q},0)}
+function count(){return cart.reduce(function(t,l){return t+l.q},0)}
+function update(){
+  var L=document.getElementById("lines");
+  if(!cart.length) L.innerHTML='<p class="empty">এখনও কিছু যোগ করা হয়নি। উপরের কালেকশন থেকে পছন্দের ড্রেস বেছে নিন।</p>';
+  else L.innerHTML=cart.map(function(l,i){var x=find(l.id);
+    return '<div class="line"><span class="dot" style="background:'+x.c[l.c][1]+'"></span><div class="t">'+x.n+'<small>'+(x.nc?'':x.c[l.c][0]+', ')+x.s[l.s]+' · '+tk(x.p)+'</small></div>'
+    +'<div class="q"><button data-i="'+i+'" data-d="-1" aria-label="কমান">−</button><b>'+bn(l.q)+'</b><button data-i="'+i+'" data-d="1" aria-label="বাড়ান">+</button></div>'
+    +'<button class="rm" data-i="'+i+'" data-d="x">বাদ</button></div>'}).join("");
+  var z=+document.getElementById("zone").value, s=sub();
+  document.getElementById("sum").innerHTML=cart.length?'<div><span>ড্রেসের দাম</span><span>'+tk(s)+'</span></div><div><span>ডেলিভারি চার্জ</span><span>'+tk(z)+'</span></div><div class="tot"><span>মোট</span><span>'+tk(s+z)+'</span></div>':'';
+  document.getElementById("barTxt").textContent=cart.length?bn(count())+" টি ড্রেস · "+tk(s):"কিছু যোগ করা হয়নি";
+}
+document.getElementById("lines").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-i]"); if(!b) return;
+  var i=+b.dataset.i,d=b.dataset.d;
+  if(d==="x") cart.splice(i,1); else {cart[i].q+=+d; if(cart[i].q<1) cart.splice(i,1);}
+  update();render();
+});
+document.getElementById("zone").addEventListener("change",update);
+
+var text="";
+document.getElementById("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var er=document.getElementById("err"),nm=ph=ad="";
+  nm=document.getElementById("nm").value.trim();ph=document.getElementById("ph").value.trim();ad=document.getElementById("ad").value.trim();
+  if(!cart.length){er.textContent="আগে কমপক্ষে একটি ড্রেস অর্ডারে যোগ করুন।";return;}
+  if(!nm){er.textContent="আপনার নাম লিখুন।";return;}
+  if(!/^(\+?88)?01\d{9}$/.test(ph.replace(/[\s-]/g,""))){er.textContent="সঠিক মোবাইল নম্বর লিখুন (যেমন 01712345678)।";return;}
+  if(ad.length<8){er.textContent="পূর্ণ ঠিকানা লিখুন।";return;}
+  er.textContent="";
+  var zs=document.getElementById("zone"),z=+zs.value,s=sub();
+  text="নতুন অর্ডার\n\n"+cart.map(function(l,i){var x=find(l.id);return bn(i+1)+". "+x.n+(x.nc?" – ":" – রঙ: "+x.c[l.c][0]+", ")+"সাইজ: "+x.s[l.s]+", পরিমাণ: "+bn(l.q)+" (৳"+bn(x.p*l.q)+")"}).join("\n")
+   +"\n\nড্রেসের দাম: ৳"+bn(s)+"\nডেলিভারি ("+zs.options[zs.selectedIndex].text.split(" (")[0]+"): ৳"+bn(z)+"\nমোট: ৳"+bn(s+z)
+   +"\n\nনাম: "+nm+"\nমোবাইল: "+ph+"\nঠিকানা: "+ad;
+  if(SHEET_URL){try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({time:new Date().toISOString(),name:nm,phone:ph,address:ad,zone:zs.options[zs.selectedIndex].text,items:cart.map(function(l){var x=find(l.id);return x.n+" - "+(x.nc?"":x.c[l.c][0]+" - ")+x.s[l.s]+" x"+l.q}).join("; "),total:s+z})}).catch(function(){})}catch(x){}}
+  cart=[];cur=null;added=0;update();render();
+  document.getElementById("form").reset();
+  var dn=document.getElementById("done");dn.classList.add("show");dn.scrollIntoView({block:"center"});
+});
+render();update();
+</script>
+</body>
+</html>
