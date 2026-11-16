@@ -149,9 +149,28 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
 #thanks .tbtn{display:block;width:100%;border:0;background:var(--acc);color:var(--acc-ink);font:inherit;font-weight:700;font-size:17px;border-radius:14px;padding:13px;cursor:pointer;text-decoration:none}
 #thanks .tbtn.alt{background:#0a7cff;color:#fff;margin-top:10px}
 .terms .end{text-align:center;margin-top:20px;font-weight:600;color:var(--ink)}
+
+.offer{max-width:960px;margin:0 auto;position:relative;overflow:hidden;background:linear-gradient(110deg,#1e3560 0%,#2b4a85 55%,#1e3560 100%);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;border-bottom:3px dashed var(--sun)}
+.offer::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-100%);animation:ofShine 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes ofShine{to{transform:translateX(100%)}}
+.offer .ob{font-family:var(--hd);font-weight:700;font-size:14px;background:var(--sun);color:#1e3560;border-radius:99px;padding:2px 14px;display:inline-flex;align-items:center;gap:6px;animation:ofPulse 1.8s ease-in-out infinite}
+@keyframes ofPulse{50%{transform:scale(1.07)}}
+.offer .ot{margin:0;font-size:15px;line-height:1.55;max-width:62ch;position:relative}
+.offer .ot b{font-family:var(--hd);color:var(--sun);font-size:17px}
+.offer .ot u{text-decoration:none;border-bottom:2px solid var(--sun);font-weight:600}
+.offer .oc{font-family:var(--hd);font-weight:700;background:var(--acc);color:#1e3560;text-decoration:none;border-radius:12px;padding:6px 18px;white-space:nowrap;box-shadow:0 3px 0 rgba(0,0,0,.25);position:relative}
+.offer .oc:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.offer .oc:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.offer::before,.offer .ob{animation:none}}
+@media (max-width:520px){.offer{padding:10px 12px;gap:8px}.offer .ot{font-size:14px}.offer .ot b{font-size:16px}}
 </style>
 </head>
 <body>
+<div class="offer" role="region" aria-label="বিশেষ অফার">
+  <span class="ob">🎁 স্পেশাল অফার</span>
+  <p class="ot"><b>সম্মানিত গ্রাহক,</b> আমাদের ওয়েবসাইটে <u>প্রথমবার অর্ডার</u> করলেই পাবেন <b>ফ্রি ক্যাশ অন ডেলিভারি!</b> শুধুমাত্র একবার — দেরি না করে অর্ডার করুন এখনই।</p>
+  <a class="oc" href="#shop">এখনই অর্ডার করুন →</a>
+</div>
 <header class="hero"><img src="img1/p000.jpg" alt="Kids Comfy Fashion – Feel The Real Comfort" width="1400" height="521"></header>
 <div class="wrap">
 
