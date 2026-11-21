@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kids Comfy Fashion – Feel The Real Comfort</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Baloo+Da+2:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Baloo+Da+2:wght@500;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
-:root{--bg:#fdf7ec;--card:#fffdf8;--ink:#1e3560;--mute:#6b6f84;--line:#eadfc8;--acc:#f5a623;--acc-ink:#1e3560;--acct:#b85f00;--sun:#f8d26a;--leaf:#3f8a2f;--sel:#1e3560;--hd:"Baloo Da 2","Hind Siliguri","Noto Sans Bengali",sans-serif;
+:root{--bg:#fdf7ec;--card:#fffdf8;--ink:#1e3560;--mute:#6b6f84;--line:#eadfc8;--acc:#f5a623;--acc-ink:#1e3560;--acct:#b85f00;--sun:#f8d26a;--leaf:#3f8a2f;--sel:#1e3560;--hd:"Noto Sans Bengali","Hind Siliguri","Segoe UI",sans-serif;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14203a;--card:#1c2b4d;--ink:#fdf3dc;--mute:#b4bdd4;--line:#2e4170;--acc:#f5a623;--acc-ink:#1e3560;--acct:#ffbf4d;--sun:#f8d26a;--leaf:#6cc24a;--sel:#f8d26a}}
 :root[data-theme="dark"]{--bg:#14203a;--card:#1c2b4d;--ink:#fdf3dc;--mute:#b4bdd4;--line:#2e4170;--acc:#f5a623;--acc-ink:#1e3560;--acct:#ffbf4d;--sun:#f8d26a;--leaf:#6cc24a;--sel:#f8d26a}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);background-image:radial-gradient(circle at 20px 20px,rgba(245,166,35,.10) 2px,transparent 2.5px);background-size:44px 44px;color:var(--ink);font-family:"Hind Siliguri","Noto Sans Bengali","Segoe UI",sans-serif;font-size:16px;line-height:1.6;padding-bottom:84px}
+body{margin:0;background:var(--bg);background-image:radial-gradient(circle at 20px 20px,rgba(245,166,35,.10) 2px,transparent 2.5px);background-size:44px 44px;color:var(--ink);font-family:"Noto Sans Bengali","Hind Siliguri","Segoe UI",sans-serif;font-size:16px;font-variant-numeric:lining-nums;line-height:1.6;padding-bottom:84px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
 header.hero{padding:0;margin:0 auto;max-width:960px;line-height:0;background:#fbf4e8}
 header.hero img{width:100%;height:auto;display:block}
@@ -161,10 +161,35 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
 #thanks .tbtn.alt{background:#0a7cff;color:#fff;margin-top:10px}
 .terms .end{text-align:center;margin-top:20px;font-weight:600;color:var(--ink)}
 
+.bar[hidden],header.hero[hidden]{display:none}
+#confirmPage .back{padding-left:0}
+.product-actions{flex-direction:column}
+.product-actions .add{flex:none}
+.view-order{width:100%;box-sizing:border-box}
+.selbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:8px 0 16px}
+.selbox .selh{font-family:var(--hd);font-weight:700;margin-bottom:6px}
+.selbox .sl{display:flex;gap:8px;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:15px}
+.selbox .sl small{color:var(--mute);display:block}
+.selbox .sl b{white-space:nowrap}
+.selbox .st{display:flex;justify-content:space-between;font-weight:700;padding-top:8px}
+.cfm{display:block;width:100%;box-sizing:border-box;text-align:center;margin-top:12px;background:var(--sun);color:#1f2a44;text-decoration:none;font-family:var(--hd);font-weight:700;border:0;border-radius:14px;padding:12px;cursor:pointer;font-size:16px}
+.bar,.topbar{color:var(--bg);background:var(--ink);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:12px}
+.topbar{position:sticky;top:0;z-index:20;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;box-shadow:0 4px 14px rgba(0,0,0,.25);border-bottom:3px solid var(--sun)}
+.topbar[hidden]{display:none}
+.bar a,.topbar a{background:var(--sun);color:#1f2a44;text-decoration:none;font-family:var(--hd);font-weight:800;font-size:17px;border-radius:14px;padding:11px 18px;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.sc{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--hd);font-weight:600;font-size:16px;line-height:1.2}
+.sc .bn{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:40px;padding:0 8px;box-sizing:border-box;border-radius:20px;background:var(--sun);color:#1f2a44;font-size:24px;font-weight:800;animation:pop .35s ease}
+.sc .bp{font-size:26px;font-weight:800;color:var(--sun);letter-spacing:.3px;animation:pop .35s ease}
+.sc .em{font-size:16px;opacity:.85}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+.selbox .sl b{font-size:17px}
+.selbox .st{font-size:20px}
+.selbox .st span:last-child{color:var(--acct);font-size:22px;font-weight:800}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","zfrhekvrig");</script>
 </head>
 <body>
+<div class="topbar" id="topBar" hidden><span class="sc" id="topTxt"><span class="em">কিছু সিলেক্ট করা হয়নি</span></span><a href="?p=confirm" data-go="confirm">অর্ডার কনফার্ম করুন</a></div>
 <header class="hero"><img src="img1/p000.jpg" alt="Kids Comfy Fashion – Feel The Real Comfort" width="1400" height="521"></header>
 <div class="wrap">
 
@@ -175,6 +200,8 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
 <div id="more" hidden></div>
 </div>
 
+<div id="confirmPage" hidden>
+<button type="button" class="back" data-go="shop">← কেনাকাটায় ফিরে যান</button>
 <h2 id="orderTitle">আপনার অর্ডার</h2>
 <section id="order">
   <div id="lines"></div>
@@ -199,6 +226,7 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
     <p class="empty" style="margin:6px 0 0">আমরা খুব শীঘ্রই আপনার মোবাইল নম্বরে যোগাযোগ করে অর্ডার নিশ্চিত করব।</p>
   </div>
 </section>
+</div>
 <footer class="terms">
 <h2>Kids Comfy Fashion</h2>
 <p><b>Terms &amp; Conditions | Shopping Policy</b></p>
@@ -269,7 +297,7 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
   <a class="ic" href="https://m.me/kidscomfyfashion" target="_blank" rel="noopener" aria-label="মেসেঞ্জারে মেসেজ করুন"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.42 3.14 7.16.16.14.26.35.27.57l.05 1.78c.02.57.6.94 1.12.71l1.98-.88c.17-.07.36-.09.53-.04.91.25 1.88.38 2.91.38 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm6 7.46-2.94 4.66c-.47.74-1.47.93-2.17.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.19-.69-.64l2.94-4.66c.47-.74 1.47-.93 2.17-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.19.69.64z"/></svg></a>
 </div>
 
-<div class="bar"><span id="barTxt">কিছু যোগ করা হয়নি</span><a href="#orderTitle">অর্ডার দেখুন</a></div>
+<div class="bar"><span class="sc" id="barTxt"><span class="em">কিছু যোগ করা হয়নি</span></span><a href="?p=confirm" data-go="confirm">অর্ডার কনফার্ম করুন</a></div>
 
 <script>
 // ===== এখানে নিজের তথ্য বসান =====
@@ -541,22 +569,51 @@ function card(x){var st=sel[x.id];
  return '<article class="card" id="c'+x.id+'"><div class="art'+phc(x)+'" style="background:'+x.bg+'">'+pic(x,x.c[st.c][1])+'</div><div class="body"><div class="top"><span class="name">'+x.n+'</span><span class="price">'+pr(x,st.s)+'</span></div><p class="ds">কোড: <b>'+x.code+'</b>'+((x.op||gr(x).op)?' · <b class="off">'+bn((x.op||gr(x).op)[0]-(x.pr||gr(x).pr)[0])+' টাকা ছাড়!</b>':'')+'</p>'+((x.d||gr(x).d)?'<p class="ds">'+(x.d||gr(x).d)+'</p>':'')
  +(x.nc?'':'<div><div class="lbl">রঙ: <b>'+x.c[st.c][0]+'</b></div><div class="opts">'+x.c.map(function(c,i){return '<button class="sw" style="background:'+c[1]+'" aria-label="'+c[0]+'" aria-pressed="'+(st.c===i)+'" data-act="c" data-id="'+x.id+'" data-i="'+i+'"></button>'}).join("")+'</div></div>')
  +'<div><div class="lbl">বয়স / সাইজ</div><div class="opts">'+x.s.map(function(s,i){return '<button class="sz" aria-pressed="'+(st.s===i)+'" data-act="s" data-id="'+x.id+'" data-i="'+i+'">'+s+'</button>'}).join("")+'</div></div>'
- +guide(x,st.s)+'<p class="err" id="e'+x.id+'"></p>'+(added===x.id?'<p class="ok">✓ অর্ডারে যোগ হয়েছে</p>':'')+'<div class="product-actions"><button class="add" data-act="add" data-id="'+x.id+'">'+(inCartP(x.id)?'আবার যোগ করুন':'অর্ডারে যোগ করুন')+'</button>'+(inCartP(x.id)?'<a class="view-order" href="#orderTitle">অর্ডার দেখুন</a>':'')+'</div></div></article>'}
+ +guide(x,st.s)+'<p class="err" id="e'+x.id+'"></p>'+(added===x.id?'<p class="ok">✓ অর্ডার এর তালিকায় যোগ হয়েছে</p>':'')+'<div class="product-actions"><button class="add" data-act="add" data-id="'+x.id+'">'+(inCartP(x.id)?'আবার তালিকায় যোগ করুন':'অর্ডার এর তালিকায় যোগ করুন')+'</button>'+(inCartP(x.id)?'<a class="view-order" href="?p=confirm" data-go="confirm">অর্ডার কনফার্ম করুন</a>':'')+'</div></div></article>'}
 var navd=false;
 var SLUG={8:"offer",3:"full-fatua",1:"mega-fatua",2:"half-fatua",4:"frok",5:"short-tops",6:"pajama",7:"half-pant"};
-function gurl(id){var u=new URLSearchParams(location.search);if(id&&SLUG[id])u.set("g",SLUG[id]);else u.delete("g");var q=u.toString();return location.pathname+(q?"?"+q:"")}
+function gurl(id){var u=new URLSearchParams(location.search);u.delete("p");if(id&&SLUG[id])u.set("g",SLUG[id]);else u.delete("g");var q=u.toString();return location.pathname+(q?"?"+q:"")}
 function slugId(sl){for(var k in SLUG)if(SLUG[k]===sl)return +k;return null}
 if(FB_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");try{fbq("init",FB_PIXEL_ID)}catch(x){}}
 function trk(){try{if(window.fbq)fbq.apply(null,arguments)}catch(x){}}
-function gview(){var g=cur?GR[cur-1]:null;document.title=(g?g.n+" – ":"")+"Kids Comfy Fashion – Feel The Real Comfort";if(g)trk("track","ViewContent",{content_name:g.n,content_category:g.n})}
+function gview(){var g=(cur&&!page)?GR[cur-1]:null;document.title=(g?g.n+" – ":"")+"Kids Comfy Fashion – Feel The Real Comfort";if(g)trk("track","ViewContent",{content_name:g.n,content_category:g.n})}
+var page=false,navc=false;
+function curl(){var u=new URLSearchParams(location.search);u.delete("g");u.set("p","confirm");return location.pathname+"?"+u.toString()}
+function selbox(){
+ var h='<div class="selbox"><div class="selh">আপনার সিলেক্ট করা ড্রেস'+(cart.length?' ('+bn(count())+' টি)':'')+'</div>';
+ if(!cart.length){h+='<p class="empty" style="margin:0">এখনও কিছু সিলেক্ট করা হয়নি।</p>'}
+ else{
+  h+=cart.map(function(l){var x=find(l.id);return '<div class="sl"><span>'+x.n+' <span class="cd">'+x.code+'</span><small>'+(x.nc?'':x.c[l.c][0]+', ')+x.s[l.s]+'</small></span><b>'+bn(l.q)+' × '+tk(price(x,l.s))+'</b></div>'}).join("");
+  h+='<div class="st"><span>ড্রেসের মোট দাম</span><span>'+tk(sub())+'</span></div>';
+ }
+ return h+'</div>';
+}
 function render(){
- var T=document.getElementById("tiles"),K=document.getElementById("picker"),M=document.getElementById("more"),H=document.getElementById("gtitle");
+ var T=document.getElementById("tiles"),K=document.getElementById("picker"),M=document.getElementById("more"),H=document.getElementById("gtitle"),
+  C=document.getElementById("confirmPage"),S=document.getElementById("shop"),HR=document.querySelector("header.hero"),B=document.querySelector(".bar");
+ C.hidden=!page;S.hidden=page;HR.hidden=page||cur!==null;B.hidden=page||cur!==null;document.getElementById("topBar").hidden=page||cur===null;
+ if(page)return;
  if(cur===null){H.hidden=false;T.hidden=false;K.hidden=true;M.hidden=true;T.innerHTML=orderedGroups().map(sect).join("");return}
  var g=GR[cur-1],it=items(cur);
  H.hidden=true;T.hidden=true;K.hidden=false;M.hidden=false;
- K.innerHTML='<button class="back" data-a="home">← সব গ্রুপ দেখুন</button><h2>'+g.n+'</h2><div class="grid">'+it.map(card).join("")+'</div>';
- M.innerHTML='<h2>এর সাথে আরও কিছু নিতে চান?</h2><div class="tiles">'+orderedGroups().filter(function(o){return o.id!==cur}).map(tile).join("")+'</div>'+(cart.length?'<a class="fin" href="#orderTitle">অর্ডার সম্পূর্ণ করুন ('+bn(count())+' টি)</a>':'');
+ K.innerHTML='<button class="back" data-a="home">← সব গ্রুপ দেখুন</button>'+selbox()+'<h2>'+g.n+'</h2><div class="grid">'+it.map(card).join("")+'</div>';
+ M.innerHTML='<h2>এর সাথে আরও কিছু নিতে চান?</h2><div class="tiles">'+orderedGroups().filter(function(o){return o.id!==cur}).map(tile).join("")+'</div>'+(cart.length?'<button type="button" class="cfm" data-go="confirm">অর্ডার কনফার্ম করুন ('+bn(count())+' টি)</button>':'');
 }
+function goConfirm(){
+ if(page)return;
+ try{history.replaceState({g:cur,y:window.scrollY},"",gurl(cur));history.pushState({p:1},"",curl());navc=true}catch(x){}
+ page=true;render();gview();window.scrollTo(0,0);
+}
+function leaveConfirm(){
+ if(navc&&history.state&&history.state.p){history.back();return}
+ page=false;try{history.replaceState({g:cur},"",gurl(cur))}catch(x){}
+ render();gview();window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){
+ var b=e.target.closest("[data-go]");if(!b)return;
+ e.preventDefault();
+ if(b.dataset.go==="confirm")goConfirm();else leaveConfirm();
+});
 document.getElementById("shop").addEventListener("click",function(e){
  var b=e.target.closest("[data-g],button[data-a],button[data-act]"); if(!b) return;
  if(b.dataset.g){var ng=+b.dataset.g;try{if(cur===null){history.replaceState({g:null,y:window.scrollY},"",gurl(null));history.pushState({g:ng},"",gurl(ng));navd=true;trk("track","PageView")}else{history.replaceState({g:ng},"",gurl(ng))}}catch(x){}cur=ng;added=0;render();gview();var fe=b.dataset.f?document.getElementById("c"+b.dataset.f):null;if(fe)fe.classList.add("hl");(fe||document.getElementById("picker")).scrollIntoView({block:"start"});return}
@@ -576,14 +633,15 @@ function sub(){return cart.reduce(function(t,l){return t+price(find(l.id),l.s)*l
 function count(){return cart.reduce(function(t,l){return t+l.q},0)}
 function update(){
   var L=document.getElementById("lines");
-  if(!cart.length) L.innerHTML='<p class="empty">এখনও কিছু যোগ করা হয়নি। উপরের কালেকশন থেকে পছন্দের ড্রেস বেছে নিন।</p>';
+  if(!cart.length) L.innerHTML='<p class="empty">এখনও কিছু অর্ডার এর তালিকায় যোগ করা হয়নি।</p><button type="button" class="cfm" data-go="shop">কালেকশনে ফিরে যান</button>';
   else L.innerHTML=cart.map(function(l,i){var x=find(l.id);
     return '<div class="line"><span class="dot" style="background:'+x.c[l.c][1]+'"></span><div class="t">'+x.n+' <span class="cd">'+x.code+'</span><small>'+(x.nc?'':x.c[l.c][0]+', ')+x.s[l.s]+' · '+tk(price(x,l.s))+'</small></div>'
     +'<div class="q"><button data-i="'+i+'" data-d="-1" aria-label="কমান">−</button><b>'+bn(l.q)+'</b><button data-i="'+i+'" data-d="1" aria-label="বাড়ান">+</button></div>'
     +'<button class="rm" data-i="'+i+'" data-d="x">বাদ</button></div>'}).join("");
   var z0=+document.getElementById("zone").value, z=FREE_DELIVERY?0:z0, s=sub();
   document.getElementById("sum").innerHTML=cart.length?'<div><span>ড্রেসের দাম</span><span>'+tk(s)+'</span></div><div><span>ডেলিভারি চার্জ</span><span>'+(FREE_DELIVERY?'<s style="color:var(--mute);margin-right:6px">'+tk(z0)+'</s><b style="color:var(--leaf)">ফ্রি</b>':tk(z))+'</span></div><div class="tot"><span>মোট</span><span>'+tk(s+z)+'</span></div>':'';
-  document.getElementById("barTxt").textContent=cart.length?bn(count())+" টি ড্রেস · "+tk(s):"কিছু যোগ করা হয়নি";
+  var bh=cart.length?'<span class="bn">'+bn(count())+'</span><span>টি ড্রেস</span><span class="bp">'+tk(s)+'</span>':'<span class="em">কিছু সিলেক্ট করা হয়নি</span>';
+  document.getElementById("barTxt").innerHTML=bh;document.getElementById("topTxt").innerHTML=bh;
 }
 document.getElementById("lines").addEventListener("click",function(e){
   var b=e.target.closest("button[data-i]"); if(!b) return;
@@ -610,13 +668,15 @@ function showThanks(nm,tot){
 function hideThanks(){document.getElementById("thanks").hidden=true;document.body.style.overflow="";if(location.hash==="#thanks"){try{history.replaceState({g:null},"",location.pathname+location.search)}catch(x){}}window.scrollTo(0,0)}
 document.getElementById("thBack").addEventListener("click",hideThanks);
 window.addEventListener("hashchange",function(){if(location.hash!=="#thanks"){document.getElementById("thanks").hidden=true;document.body.style.overflow=""}});
-if(location.hash==="#thanks"){try{history.replaceState({g:null},"",location.pathname+location.search)}catch(x){}}else{var gi=slugId(new URLSearchParams(location.search).get("g"));if(gi&&!items(gi).length)gi=null;try{history.replaceState({g:gi},"",gurl(gi))}catch(x){}if(gi)cur=gi}
+if(location.hash==="#thanks"){try{history.replaceState({g:null},"",location.pathname+location.search)}catch(x){}}else if(new URLSearchParams(location.search).get("p")==="confirm"){page=true;try{history.replaceState({p:1},"",curl())}catch(x){}}else{var gi=slugId(new URLSearchParams(location.search).get("g"));if(gi&&!items(gi).length)gi=null;try{history.replaceState({g:gi},"",gurl(gi))}catch(x){}if(gi)cur=gi}
 window.addEventListener("popstate",function(e){
   var st=e.state;
   if(location.hash!=="#thanks"){document.getElementById("thanks").hidden=true;document.body.style.overflow=""}
-  var ng=(st&&st.g)?+st.g:null;
-  if(ng===cur)return;
-  cur=ng;added=0;render();gview();
+  if(st&&st.p){navc=true;if(!page){page=true;render();gview();window.scrollTo(0,0)}return}
+  navc=false;
+  var ng=(st&&st.g)?+st.g:null,was=page;
+  if(ng===cur&&!was)return;
+  page=false;cur=ng;added=0;render();gview();
   if(ng===null){if(st&&typeof st.y==="number")window.scrollTo(0,st.y);else document.getElementById("gtitle").scrollIntoView({block:"start"})}
   else document.getElementById("picker").scrollIntoView({block:"start"});
 });
@@ -624,7 +684,7 @@ document.getElementById("form").addEventListener("submit",function(e){
   e.preventDefault();
   var er=document.getElementById("err"),nm=ph=ad="";
   nm=document.getElementById("nm").value.trim();ph=document.getElementById("ph").value.trim();ad=document.getElementById("ad").value.trim();
-  if(!cart.length){er.textContent="আগে কমপক্ষে একটি ড্রেস অর্ডারে যোগ করুন।";return;}
+  if(!cart.length){er.textContent="আগে কমপক্ষে একটি ড্রেস অর্ডার এর তালিকায় যোগ করুন।";return;}
   if(!nm){er.textContent="আপনার নাম লিখুন।";return;}
   if(!/^(\+?88)?01\d{9}$/.test(ph.replace(/[\s-]/g,""))){er.textContent="সঠিক মোবাইল নম্বর লিখুন (যেমন 01712345678)।";return;}
   if(ad.length<8){er.textContent="পূর্ণ ঠিকানা লিখুন।";return;}
@@ -634,7 +694,7 @@ document.getElementById("form").addEventListener("submit",function(e){
    +"\n\nড্রেসের দাম: ৳"+bn(s)+"\nডেলিভারি ("+zs.options[zs.selectedIndex].text.split(" (")[0]+"): "+(FREE_DELIVERY?"ফ্রি":"৳"+bn(z))+"\nমোট: ৳"+bn(s+z)
    +"\n\nনাম: "+nm+"\nমোবাইল: "+ph+"\nঠিকানা: "+ad;
   if(SHEET_URL){try{fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({time:new Date().toISOString(),name:nm,phone:ph,address:ad,zone:zs.options[zs.selectedIndex].text,items:cart.map(function(l){var x=find(l.id);return x.n+" ["+x.code+"] - "+(x.nc?"":x.c[l.c][0]+" - ")+x.s[l.s]+" x"+l.q}).join("; "),total:s+z})}).catch(function(){})}catch(x){}}
-  trk("track","Purchase",{value:s+z,currency:"BDT"});cart=[];cur=null;added=0;try{history.replaceState({g:null},"",gurl(null))}catch(x){}update();render();gview();
+  trk("track","Purchase",{value:s+z,currency:"BDT"});cart=[];cur=null;page=false;navc=false;added=0;try{history.replaceState({g:null},"",gurl(null))}catch(x){}update();render();gview();
   document.getElementById("form").reset();
   showThanks(nm,s+z);
 });
