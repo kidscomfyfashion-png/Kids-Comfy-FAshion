@@ -255,6 +255,9 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 0}
 .pgn button{min-width:42px;height:42px;padding:0 12px;border-radius:12px;border:2px solid var(--tb-bd);background:var(--tb-bg);color:var(--tb-ink);font-family:var(--hd);font-weight:700;font-size:16px;cursor:pointer}
 .pgn button[aria-current="page"]{background:var(--tb-on-bg);color:var(--tb-on-ink);border-color:var(--tb-on-bd)}
 .pgn button:disabled{opacity:.4;cursor:default}
+.rsteps li{padding-bottom:14px}
+.rsteps .n{top:12px;margin-top:0}
+.rsteps svg{display:block;width:100%;max-width:360px;margin-top:10px;border-radius:12px;border:1px solid var(--line)}
 </style>
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","zfrhekvrig");</script>
 </head>
@@ -631,7 +634,7 @@ function art(sh,col){return '<svg viewBox="0 0 120 130" aria-hidden="true">'+SH[
 function find(id){return P.filter(function(x){return x.id==id})[0]}
 var NEWEST={1:1};
 var LAST={"FR-04":1};
-function items(g){if(g===8)return P.filter(function(x){return x.offer});var r=P.filter(function(x){return x.g===g&&!x.offer});r=NEWEST[g]?r.reverse():r;return r.filter(function(x){return !LAST[x.code]}).concat(r.filter(function(x){return LAST[x.code]}))}
+function items(g){if(g===99)return allList().map(function(o){return o.x});if(g===8)return P.filter(function(x){return x.offer});var r=P.filter(function(x){return x.g===g&&!x.offer});r=NEWEST[g]?r.reverse():r;return r.filter(function(x){return !LAST[x.code]}).concat(r.filter(function(x){return LAST[x.code]}))}
 function orderedGroups(){var f=function(i){return GR.filter(function(g){return g.id===i})[0]};return [f(3),f(4),f(8)].concat(GR.filter(function(g){return g.id!==3&&g.id!==4&&g.id!==8})).filter(function(g){return items(g.id).length})}
 function inCartP(id){return cart.some(function(l){return l.id===id})}
 function gInCart(g){return cart.some(function(l){return find(l.id).g===g})}
@@ -646,16 +649,40 @@ function card(x){var st=sel[x.id],nz=(st.s>=0&&added!==x.id);
  +'<div><div class="lbl">বয়স / সাইজ</div><div class="opts">'+x.s.map(function(s,i){return '<button class="sz" aria-pressed="'+(st.s===i)+'" data-act="s" data-id="'+x.id+'" data-i="'+i+'">'+s+'</button>'}).join("")+'</div></div>'
  +guide(x,st.s)+'<p class="err" id="e'+x.id+'"></p>'+(added===x.id?'<p class="ok">✓ অর্ডার এর তালিকায় যোগ হয়েছে</p>':'')+'<div class="product-actions">'+'<button class="add'+(nz?" nudge":"")+'" data-act="add" data-id="'+x.id+'">'+(inCartP(x.id)?'আবার তালিকায় যোগ করুন':'অর্ডার এর তালিকায় যোগ করুন')+'</button>'+(inCartP(x.id)?'<a class="view-order" href="?p=confirm" data-go="confirm">অর্ডার কনফার্ম করুন</a>':'')+'</div></div></article>'}
 var navd=false;
-var SLUG={8:"offer",3:"full-fatua",1:"mega-fatua",2:"half-fatua",4:"frok",5:"short-tops",6:"pajama",7:"half-pant"};
+var SLUG={99:"all",8:"offer",3:"full-fatua",1:"mega-fatua",2:"half-fatua",4:"frok",5:"short-tops",6:"pajama",7:"half-pant"};
 function gurl(id){var u=new URLSearchParams(location.search);u.delete("p");if(id&&SLUG[id])u.set("g",SLUG[id]);else u.delete("g");var q=u.toString();return location.pathname+(q?"?"+q:"")}
 function slugId(sl){for(var k in SLUG)if(SLUG[k]===sl)return +k;return null}
 if(FB_PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");try{fbq("init",FB_PIXEL_ID)}catch(x){}}
 function trk(){try{if(window.fbq)fbq.apply(null,arguments)}catch(x){}}
-function gview(){var g=(cur&&!page)?GR[cur-1]:null;document.title=(g?g.n+" – ":"")+"Kids Comfy Fashion – Feel The Real Comfort";if(g)trk("track","ViewContent",{content_name:g.n,content_category:g.n})}
+function G(i){return i===99?{n:"সব ড্রেস",id:99}:GR[i-1]}
+function gview(){var g=(cur&&!page)?G(cur):null;document.title=(g?g.n+" – ":"")+"Kids Comfy Fashion – Feel The Real Comfort";if(g)trk("track","ViewContent",{content_name:g.n,content_category:g.n})}
 var page=false,navc=false,hv="home";
+function demos(){
+ var N="#1e3560",O="#f5a623",L="#eadfc8",Y="#f8d26a",M="#6b6f84",W="#fffdf8";
+ function R(x,y,w,h,f,s,r){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(r==null?6:r)+'" fill="'+f+'"'+(s?' stroke="'+s+'" stroke-width="1.5"':'')+'/>'}
+ function T(x,y,t,z,f,a){return '<text x="'+x+'" y="'+y+'" font-size="'+z+'" font-weight="700" fill="'+f+'" text-anchor="'+(a||"start")+'" font-family="inherit">'+t+'</text>'}
+ function P(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="16" fill="'+O+'" opacity=".4"/><circle cx="'+x+'" cy="'+y+'" r="6" fill="#e07b00"/>'}
+ function D(x,y,k,c){return '<g transform="translate('+x+','+y+') scale('+k+')"><path d="M40 10 Q60 26 80 10 L108 30 L96 52 L84 46 L84 118 L36 118 L36 46 L24 52 L12 30 Z" fill="'+c+'"/></g>'}
+ function V(b){return '<svg viewBox="0 0 300 180" role="img" aria-label="ডেমো ছবি">'+R(0,0,300,180,"#fdf7ec")+b+'</svg>'}
+ function chips(y,on){var a=["১-২ বছর","২-৩ বছর","৩-৪ বছর"],h="";a.forEach(function(t,i){h+=R(86+i*46,y,42,20,i===on?N:W,N,10)+T(107+i*46,y+14,t,8,i===on?"#fff":N,"middle")});return h}
+ function bar(y,t1,t2){return R(0,y,300,40,N,0,0)+T(14,y+25,t1,12,"#fff")+T(96,y+25,t2,13,Y)+R(170,y+8,122,24,Y,0,12)+T(231,y+24,"অর্ডার কনফার্ম করুন",9,N,"middle")}
+ var tabs=R(8,8,284,22,"#fff",L)+R(12,11,22,16,N)+T(23,23,"☰",10,Y,"middle")+R(38,11,70,16,O)+T(73,23,"হোম",10,N,"middle")+R(112,11,70,16,"#fff",N)+T(147,23,"সব ড্রেস",10,N,"middle")+R(186,11,100,16,"#fff",N)+T(236,23,"অর্ডারের নিয়ম",9,N,"middle");
+ var tiles="";[["ফ্রক","#ffe9ef","#ff8fb1"],["ফতুয়া","#e8f1ff","#6ec6ff"],["পাজামা","#e5f7ee","#3f9a6b"]].forEach(function(g,i){var x=14+i*93;tiles+=R(x,42,86,122,W,L)+R(x+4,46,78,76,g[1])+D(x+22,50,.5,g[2])+T(x+43,144,g[0],11,N,"middle")});
+ var d1=V(tabs+tiles+P(180,114));
+ var card=R(70,8,160,164,W,L)+R(78,16,144,62,"#e8f1ff")+D(130,16,.46,"#6ec6ff")+T(86,94,"বাচ্চাদের ফতুয়া",11,N)+T(222,94,"৳২৫০",11,"#b85f00","end")+T(86,112,"বয়স / সাইজ",9,M);
+ var d2=V(card+chips(118,1)+R(86,146,128,20,"#fff3d6",L)+T(150,160,"অর্ডার এর তালিকায় যোগ করুন",8,M,"middle")+P(168,142));
+ var d3=V(R(70,8,160,164,W,L)+R(78,16,144,44,"#e8f1ff")+D(138,14,.38,"#6ec6ff")+T(86,76,"বাচ্চাদের ফতুয়া",11,N)+T(222,76,"৳২৫০",11,"#b85f00","end")+chips(86,1)+R(86,116,128,26,O,0,8)+T(150,133,"অর্ডার এর তালিকায় যোগ করুন",9,N,"middle")+P(204,140)+T(150,160,"✓ অর্ডার এর তালিকায় যোগ হয়েছে",9,"#3f8a2f","middle"));
+ function mc(x,done){return R(x,8,132,120,W,L)+R(x+6,14,120,46,"#fff6dc")+D(x+44,12,.38,"#ffd04d")+T(x+8,76,"বাচ্চাদের ফতুয়া",10,N)+(done?T(x+8,92,"✓ যোগ হয়েছে",9,"#3f8a2f"):"")+R(x+8,98,116,22,done?"#fff3d6":O,0,8)+T(x+66,113,done?"আবার যোগ করুন":"অর্ডার এর তালিকায় যোগ করুন",8,N,"middle")}
+ var d4=V(mc(14,1)+mc(154,0)+P(270,120)+bar(140,"২ টি ড্রেস","৳৫৪০"));
+ function row(y,a,b,c){return T(20,y,a,10,N)+T(20,y+12,b,8,M)+T(280,y+4,c,10,N,"end")+'<line x1="20" y1="'+(y+20)+'" x2="280" y2="'+(y+20)+'" stroke="'+L+'"/>'}
+ var d5=V(R(10,6,280,128,W,L)+T(20,26,"সিলেক্ট করা ড্রেস",11,N)+row(44,"বাচ্চাদের ফতুয়া","নীল, ৩-৪ বছর","১ × ৳২৫০")+row(76,"বাচ্চাদের ফ্রক","গোলাপি, ২-৩ বছর","১ × ৳২৯০")+T(20,122,"ড্রেসের মোট দাম",11,N)+T(280,122,"৳৫৪০",13,"#b85f00","end")+bar(140,"২ টি ড্রেস","৳৫৪০ ▴")+P(152,164));
+ var d6=V(bar(0,"☰   ২ টি ড্রেস","")+T(150,92,"অথবা",10,M,"middle")+bar(140,"২ টি ড্রেস","৳৫৪০")+P(286,28)+P(286,168));
+ var d7=V(R(20,8,260,24,"#fff",L)+T(30,24,"আপনার নাম",9,M)+R(20,38,260,24,"#fff",L)+T(30,54,"মোবাইল নম্বর",9,M)+R(20,68,260,30,"#fff",L)+T(30,84,"পূর্ণ ঠিকানা",9,M)+R(20,104,126,26,"#fff","#3f8a2f")+T(83,121,"✓ ঢাকা সিটির ভেতরে",8,N,"middle")+R(154,104,126,26,"#fff",L)+T(217,121,"ঢাকার বাইরে",8,N,"middle")+R(20,140,260,30,"#3f8a2f",0,10)+T(150,160,"অর্ডার তৈরি করুন",12,"#fff","middle")+P(258,168));
+ return [d1,d2,d3,d4,d5,d6,d7]
+}
 function rulesView(){
- var st=["হোম বা মেনু থেকে পছন্দের গ্রুপ খুলুন।","ড্রেস বেছে রং ও সাইজ সিলেক্ট করুন।","<b>“অর্ডার এর তালিকায় যোগ করুন”</b> বাটনে চাপুন। আরও ড্রেস নিতে চাইলে অন্য গ্রুপ থেকেও একইভাবে যোগ করুন।","উপরের বা নিচের বারে <b>“অর্ডার কনফার্ম করুন”</b> বাটনে চাপুন।","নাম, মোবাইল নম্বর ও পূর্ণ ঠিকানা লিখুন, ডেলিভারি এলাকা বেছে অর্ডার পাঠান।"];
- return '<ol class="rsteps">'+st.map(function(t,i){return '<li><span class="n">'+bn(i+1)+'</span>'+t+'</li>'}).join("")+'</ol><div class="rnote"><b>জেনে রাখুন</b><ul><li>সঠিক নাম, মোবাইল নম্বর ও সম্পূর্ণ ডেলিভারি ঠিকানা দিতে হবে।</li><li>অর্ডারের পর আমাদের প্রতিনিধি ফোন বা মেসেজে অর্ডার নিশ্চিত করতে পারেন।</li><li>ক্যাশ অন ডেলিভারি সুবিধা আছে, পণ্য হাতে পেয়ে মূল্য পরিশোধ করতে পারবেন।</li><li>সাধারণত অর্ডার নিশ্চিত হওয়ার ৩ থেকে ৪ কর্মদিবসের মধ্যে ডেলিভারি হয়।</li></ul></div><button type="button" class="cfm" data-m="home">এখনই ড্রেস বেছে নিন</button>';
+ var st=["পছন্দের ড্রেস / গ্রুপ এ ক্লিক করুন।","পছন্দের ড্রেস বেছে সাইজ সিলেক্ট করুন।","<b>“অর্ডার এর তালিকায় যোগ করুন”</b> বাটনে চাপুন।","আরও ড্রেস নিতে চাইলে একইভাবে যোগ করুন।","সিলেক্টেড ড্রেস থেকে আপনার সিলেক্ট করা ড্রেসগুলো সাইজ ও দাম সহ চেক করুন।","উপরের বা নিচের বারে <b>“অর্ডার কনফার্ম করুন”</b> বাটনে চাপুন।","নাম, মোবাইল নম্বর ও পূর্ণ ঠিকানা লিখুন, ডেলিভারি এলাকা বেছে অর্ডার করুন।"],DM=demos();
+ return '<ol class="rsteps">'+st.map(function(t,i){return '<li><span class="n">'+bn(i+1)+'</span>'+t+DM[i]+'</li>'}).join("")+'</ol><div class="rnote"><b>জেনে রাখুন</b><ul><li>সঠিক নাম, মোবাইল নম্বর ও সম্পূর্ণ ডেলিভারি ঠিকানা দিতে হবে।</li><li>অর্ডারের পর আমাদের প্রতিনিধি ফোন বা মেসেজে অর্ডার নিশ্চিত করতে পারেন।</li><li>ক্যাশ অন ডেলিভারি সুবিধা আছে, পণ্য হাতে পেয়ে মূল্য পরিশোধ করতে পারবেন।</li><li>সাধারণত অর্ডার নিশ্চিত হওয়ার ৩ থেকে ৪ কর্মদিবসের মধ্যে ডেলিভারি হয়।</li></ul></div><button type="button" class="cfm" data-m="home">এখনই ড্রেস বেছে নিন</button>';
 }
 function menuBuild(){
  var P=document.getElementById("mpanel");if(P.dataset.b)return;P.dataset.b="1";
@@ -663,6 +690,7 @@ function menuBuild(){
 }
 function menuOpen(o){var P=document.getElementById("mpanel"),was=!P.hidden;P.hidden=!o;document.getElementById("mback").hidden=!o;["mbtn","mbtn2"].forEach(function(i){document.getElementById(i).setAttribute("aria-expanded",o?"true":"false")});if(o)document.body.style.overflow="hidden";else if(was)document.body.style.overflow=""}
 function openGroup(ng){
+ if(ng===99)apg=1;
  try{if(cur===null&&!page){history.replaceState({g:null,y:window.scrollY},"",gurl(null));history.pushState({g:ng},"",gurl(ng));navd=true;trk("track","PageView")}else{history.replaceState({g:ng},"",gurl(ng))}}catch(x){}
  page=false;navc=false;cur=ng;added=0;render();gview();window.scrollTo(0,0);
 }
@@ -679,6 +707,7 @@ function navTo(t){
  menuOpen(false);closeSheet();
  if(t==="confirm"){goConfirm();return}
  if(t.charAt(0)==="g"){openGroup(+t.slice(1));return}
+ if(t==="all"){openGroup(99);return}
  goView(t);
 }
 document.addEventListener("click",function(e){
@@ -691,14 +720,13 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")menuOpen(fal
 function groupsView(){return '<div class="tiles">'+orderedGroups().map(tile).join("")+'</div>'}
 var ALLR=null,apg=1,PER=20;
 function allList(){if(ALLR)return ALLR;var a=[];orderedGroups().forEach(function(g){items(g.id).forEach(function(x){a.push({x:x,g:g.id})})});for(var i=a.length-1;i>0;i--){var k=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[k];a[k]=t}return ALLR=a}
-function allView(){var a=allList(),np=Math.max(1,Math.ceil(a.length/PER));if(apg>np)apg=np;if(apg<1)apg=1;var cs=a.slice((apg-1)*PER,apg*PER);
- var h='<div class="clg call">'+cs.map(function(o){return mini(o.x).split('data-g="'+o.x.g+'"').join('data-g="'+o.g+'"')}).join("")+'</div>';
- if(np>1){h+='<nav class="pgn" aria-label="পেজ">'+'<button type="button" data-pg="'+(apg-1)+'"'+(apg===1?' disabled':'')+'>← আগে</button>';
-  for(var p=1;p<=np;p++)h+='<button type="button" data-pg="'+p+'"'+(p===apg?' aria-current="page"':'')+'>'+bn(p)+'</button>';
-  h+='<button type="button" data-pg="'+(apg+1)+'"'+(apg===np?' disabled':'')+'>পরবর্তী →</button></nav>'}
- return h}
-document.addEventListener("click",function(e){var b=e.target.closest("button[data-pg]");if(!b||b.disabled)return;apg=+b.dataset.pg;render();document.getElementById("tabBar").scrollIntoView({block:"start"})});
-document.addEventListener("click",function(e){var b=e.target.closest("[data-m]");if(!b)return;if(b.dataset.m==="all"&&hv!=="all")apg=1;hv=b.dataset.m;render();var mb=document.getElementById("tabBar");window.scrollTo(0,mb.getBoundingClientRect().top+window.scrollY)});
+function allNp(){return Math.max(1,Math.ceil(allList().length/PER))}
+function allSlice(){var np=allNp();if(apg>np)apg=np;if(apg<1)apg=1;return allList().slice((apg-1)*PER,apg*PER).map(function(o){return o.x})}
+function pgnHtml(){var np=allNp();if(np<2)return"";var h='<nav class="pgn" aria-label="পেজ"><button type="button" data-pg="'+(apg-1)+'"'+(apg===1?' disabled':'')+'>← আগে</button>';
+ for(var p=1;p<=np;p++)h+='<button type="button" data-pg="'+p+'"'+(p===apg?' aria-current="page"':'')+'>'+bn(p)+'</button>';
+ return h+'<button type="button" data-pg="'+(apg+1)+'"'+(apg===np?' disabled':'')+'>পরবর্তী →</button></nav>'}
+document.addEventListener("click",function(e){var b=e.target.closest("button[data-pg]");if(!b||b.disabled)return;apg=+b.dataset.pg;added=0;render();window.scrollTo(0,0)});
+document.addEventListener("click",function(e){var b=e.target.closest("[data-m]");if(!b)return;if(b.dataset.m==="all"){openGroup(99);return}hv=b.dataset.m;render();var mb=document.getElementById("tabBar");window.scrollTo(0,mb.getBoundingClientRect().top+window.scrollY)});
 function curl(){var u=new URLSearchParams(location.search);u.delete("g");u.set("p","confirm");return location.pathname+"?"+u.toString()}
 function selbox(){
  var h='<div class="selbox"><div class="selh">আপনার সিলেক্ট করা ড্রেস'+(cart.length?' ('+bn(count())+' টি)':'')+'</div>';
@@ -713,16 +741,16 @@ function render(){
  var T=document.getElementById("tiles"),K=document.getElementById("picker"),M=document.getElementById("more"),H=document.getElementById("gtitle"),
   C=document.getElementById("confirmPage"),S=document.getElementById("shop"),HR=document.querySelector("header.hero"),B=document.querySelector(".bar");
  C.hidden=!page;S.hidden=page;HR.hidden=page||cur!==null;B.hidden=page||cur!==null;document.getElementById("tabBar").hidden=page||cur!==null;
- var nm=page?"অর্ডার কনফার্ম":cur!==null?GR[cur-1].n:hv==="all"?"সব ড্রেস":hv==="rules"?"অর্ডার করার নিয়ম":hv==="groups"?"সব গ্রুপ":"হোম",cu=page?"confirm":cur!==null?"g"+cur:hv==="groups"?"home":hv;
+ var nm=page?"অর্ডার কনফার্ম":cur!==null?G(cur).n:hv==="all"?"সব ড্রেস":hv==="rules"?"অর্ডার করার নিয়ম":hv==="groups"?"সব গ্রুপ":"হোম",cu=page?"confirm":cur!==null?(cur===99?"all":"g"+cur):hv==="groups"?"home":hv;
  menuBuild();
  document.querySelectorAll("#mpanel [data-nav]").forEach(function(b){b.setAttribute("aria-current",b.dataset.nav===cu?"true":"false")});var TB=document.getElementById("topBar");TB.hidden=!(page||cur!==null);TB.classList.toggle("ptype",page);document.querySelector("#topBar a").classList.toggle("nudge",added>0&&cur!==null&&!page);document.querySelector(".bar a").classList.toggle("nudge",cart.length>0&&cur===null&&!page);
  if(page)return;
  if(cur===null){H.textContent=hv==="groups"?"সব গ্রুপ":hv==="all"?"সব ড্রেস":hv==="rules"?"অর্ডার করার নিয়ম":"";H.hidden=!H.textContent;T.hidden=false;K.hidden=true;M.hidden=true;
   document.querySelectorAll("#tabBar button").forEach(function(b){b.setAttribute("aria-current",b.dataset.m===hv?"true":"false")});
-  T.innerHTML=hv==="groups"?groupsView():hv==="all"?allView():hv==="rules"?rulesView():orderedGroups().map(sect).join("");return}
- var g=GR[cur-1],it=items(cur);
+  T.innerHTML=hv==="groups"?groupsView():hv==="rules"?rulesView():orderedGroups().map(sect).join("");return}
+ var g=G(cur),it=cur===99?allSlice():items(cur);
  H.hidden=true;T.hidden=true;K.hidden=false;M.hidden=false;
- K.innerHTML='<button class="back" data-a="home">← সব গ্রুপ দেখুন</button>'+selbox()+'<h2>'+g.n+'</h2><div class="grid">'+it.map(card).join("")+'</div>';
+ K.innerHTML='<button class="back" data-a="home">← সব গ্রুপ দেখুন</button>'+selbox()+'<h2>'+g.n+'</h2><div class="grid">'+it.map(card).join("")+'</div>'+(cur===99?pgnHtml():"");
  M.innerHTML='<h2>এর সাথে আরও কিছু নিতে চান?</h2><div class="tiles">'+orderedGroups().filter(function(o){return o.id!==cur}).map(tile).join("")+'</div>'+(cart.length?'<button type="button" class="cfm" data-go="confirm">অর্ডার কনফার্ম করুন ('+bn(count())+' টি)</button>':'');
 }
 function openSheet(){if(!cart.length)return;var S=document.getElementById("selSheet");S.className=cur===null?"bot":"top";S.hidden=false;document.body.style.overflow="hidden"}
